@@ -23,6 +23,8 @@ spring:
           lob:
             non_contextual_creation: true
     show-sql: true
+    hibernate:
+      ddl-auto: update
 #logging:
 #  level:
 #    org.springframework.jdbc: DEBUG
