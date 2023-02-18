@@ -2,7 +2,6 @@ package br.com.felipe.gadelha.modules.v1.controller
 
 import br.com.felipe.gadelha.modules.dto.request.UserRq
 import br.com.felipe.gadelha.modules.dto.response.UserRs
-import br.com.felipe.gadelha.modules.entity.User
 import br.com.felipe.gadelha.modules.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity

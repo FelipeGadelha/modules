@@ -18,7 +18,6 @@ allprojects {
 	repositories {
 		mavenCentral()
 	}
-
 }
 
 subprojects {
@@ -33,14 +32,6 @@ subprojects {
 		implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
 	}
-	tasks.getByName("bootJar") {
-		enabled = false
-	}
-
-	tasks.getByName("jar") {
-		enabled = true
-	}
-
 	tasks.withType<KotlinCompile> {
 		kotlinOptions {
 			freeCompilerArgs = listOf("-Xjsr305=strict")

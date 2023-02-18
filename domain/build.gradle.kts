@@ -1,17 +1,15 @@
 allOpen {
 	annotation("jakarta.persistence.Entity")
 	annotation("jakarta.persistence.MappedSuperclass")
-	annotation("jakarta.persistence.Embeddable")
-}
-tasks.getByName("bootJar") {
-	enabled = true
+//	annotation("jakarta.persistence.Embeddable")
 }
 
-tasks.getByName("jar") {
-	enabled = false
+springBoot {
+	mainClass.set("api.src.main.kotlin.br.com.felipe.gadelha.modules.ModulesApplication")
 }
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
-	runtimeOnly("org.postgresql:postgresql")
+	implementation("org.postgresql:postgresql")
 }
