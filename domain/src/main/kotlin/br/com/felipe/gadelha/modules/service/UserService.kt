@@ -1,12 +1,9 @@
 package br.com.felipe.gadelha.modules.service
 
-import br.com.felipe.gadelha.modules.entity.User
+import br.com.felipe.gadelha.modules.model.User
 import br.com.felipe.gadelha.modules.repository.UserRepository
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Service
 
-@Service
-class UserService @Autowired constructor(
+class UserService constructor(
     private val userRepository: UserRepository
 ) {
 

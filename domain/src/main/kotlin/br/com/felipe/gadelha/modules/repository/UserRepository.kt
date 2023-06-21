@@ -1,9 +1,9 @@
 package br.com.felipe.gadelha.modules.repository
 
-import br.com.felipe.gadelha.modules.entity.User
-import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.stereotype.Repository
+import br.com.felipe.gadelha.modules.model.User
 
-@Repository
-interface UserRepository: JpaRepository<User, Long> {
+interface UserRepository {
+    fun findAll(): List<User>
+    fun save(user: User): User
+
 }

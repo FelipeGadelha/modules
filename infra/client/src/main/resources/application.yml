@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    name: ModulesDataSource
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/modules-db
+    username: ${MODULES_DATASOURCE_USERNAME:postgres}
+    password: ${MODULES_DATASOURCE_PASSWORD:password}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: modulesPool
+      connection-test-query: select now()
+      maximum-pool-size: 5
+      minimum-idle: 1
+      connection-timeout: 20000
+      idle-timeout: 10000
+  jpa:
+    open-in-view: true
+    #    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+#logging:
+#  level:
+#    org.springframework.jdbc: DEBUG
+#    javax.persistence.criteria: DEBUG

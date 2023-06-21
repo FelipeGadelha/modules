@@ -1,5 +1,6 @@
-package br.com.felipe.gadelha.modules.entity
+package br.com.felipe.gadelha.modules.data.entity
 
+import br.com.felipe.gadelha.modules.model.User
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -14,7 +15,7 @@ import java.util.Objects
 
 @Entity
 @Table(name = "users")
-data class User(
+data class UserEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
     @NotBlank val name: String = "",
@@ -28,7 +29,16 @@ data class User(
     @UpdateTimestamp @Column(name = "update_date", nullable = false)
     val updateDate: OffsetDateTime = OffsetDateTime.now()
 ) {
-    fun update(updated: User) = User(
+    fun update(updated: UserEntity) = UserEntity(
+        id = if (Objects.isNull(id)) this.id else updated.id,
+        name = updated.name,
+        email = updated.email,
+        password = if (Objects.isNull(password)) this.password else updated.password,
+        creationDate = if (Objects.isNull(creationDate)) this.creationDate else updated.creationDate,
+        updateDate = if (Objects.isNull(updateDate)) this.updateDate else updated.updateDate
+    )
+
+    fun toModel(updated: User) = User(
         id = if (Objects.isNull(id)) this.id else updated.id,
         name = updated.name,
         email = updated.email,
